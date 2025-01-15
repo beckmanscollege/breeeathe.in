@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>*˚:✧｡･:*˚:✧｡</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="theme-color" content="#000000">
+  <link rel="stylesheet" href="https://use.typekit.net/dyp5cjt.css">
+  <link rel="icon" type="image/x-icon" href="orb.ico">
+
+</head>
+<body>
+  <div id="intro-popup"></div>
+  <div class="orb"></div>
+  <video id="background-video" autoplay muted playsinline>
+    <source id="video-source" src="" type="video/mp4">
+  </video>
+  
+  <div id="side-menu" class="side-menu">
+    <div class="menu-content">
+      <p>Duration:</p>
+
+    <label>
+      <input type="range" id="inhale-control" min="1" max="10" value="4">
+      <span id="inhale-display">4</span>
+    </label>
+    <label>
+      
+      <input type="range" id="hold-inhale-control" min="1" max="10" value="2">
+      <span id="hold-inhale-display">2</span>
+    </label>
+    <label>
+      
+      <input type="range" id="exhale-control" min="1" max="10" value="4">
+      <span id="exhale-display">4</span>
+    </label>
+    <label>
+      
+      <input type="range" id="hold-exhale-control" min="1" max="10" value="2">
+      <span id="hold-exhale-display">2</span>
+    </label>
+
+        <div class="simulation-control">
+          <span>Mode:</span>
+          <button id="underground-button" class="simulation-button">Underground</button>
+          <button id="supermarket-button" class="simulation-button">Supermarket</button>
+          <button id="nature-button" class="simulation-button">Nature</button>
+          <button id="nightlife-button" class="simulation-button">Nightlife</button>
+          <button id="neutral-button" class="simulation-button">Neutral</button> <!-- Neutral Button -->
+        </div>
+      </label>
+      <div class="mood-music-control">
+        <div class="mood-control">
+          <span>Mood</span>
+          <input type="color" id="mood-ring-color" value="#2132c7">
+        </div>
+        <div class="music-control">
+          <span>Music</span>
+          <button id="audio-toggle" class="speaker-button">
+            <img src="soundon.svg" alt="Speaker Icon" id="speaker-icon">
+          </button>
+        </div>
+        <div class="fun-link">
+          <a href="pixelpeople.online" target="_blank" rel="noopener noreferrer" id="fun-link">More fun</a>
+        </div>
+      </div>
+    </label>
+  </div>
+  <button id="menu-toggle">❍</button>
+  <script src="script.js"></script>
+</body>
+</html>
