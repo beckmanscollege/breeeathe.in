@@ -1,0 +1,372 @@
+/* Base body styling */
+body {
+ margin: 0;
+ padding: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: radial-gradient(circle, rgb(6, 1, 114) 0%, black 40%);
+  background-size: 110%;
+  color: white;
+  text-align: center;
+  font-family: "cofo-sans-variable", sans-serif;
+  font-variation-settings: "slnt" 0, "wght" 400;
+  overflow: hidden; /* Prevent unnecessary scrollbars */
+   }
+
+
+/* Orb styling */
+.orb {
+  animation: bop 1.5s ease-in-out infinite; /* Restored the bopping animation */
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  z-index: 10;
+  position: relative; /* Ensure proper placement */
+  box-shadow: 
+  inset 0 0 2.7em #fff,
+  inset 1.25em 0 3.75em rgb(33, 50, 199),
+  inset -1.25em 0 3.75em blue,
+  inset 1.25em 0 18.75em rgb(22, 9, 190),
+  inset -1.25em 0 18.75em rgb(3, 3, 174),
+  0 0 2em #fffceb,
+  -0.625em 0 3.75em rgb(7, 3, 226),
+  0.625em 0 3.75em rgb(48, 48, 172);
+  transition: width 8s, height 8s;
+}
+
+.orb.color-dodge {
+  mix-blend-mode: color-dodge;
+}
+
+@keyframes bop {
+  0%, 100% {
+    transform: translateY(0); /* Initial position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+}
+
+/* Popup message styling */
+#intro-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white; /* Removed background color */
+  padding: 0; /* Removed padding */
+  border-radius: 0; /* Removed border radius */
+  font-size: 2em; /* Increased font size */
+  text-align: center;
+  z-index: 20;
+  opacity: 1;
+  transition: opacity 0.5s ease-out;
+  font-family: "seria sans", sans-serif;
+  font-weight: 400;
+  pointer-events: none; /* Ensure the popup doesn’t interfere with interaction */
+  transition: opacity 2s ease; /* Smooth fade-out */
+}
+
+/* Hidden class for fade-out effect */
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease-out, visibility 0s linear 0.5s;
+}
+
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the area without distortion */
+  z-index: -1; /* Places the video behind other elements */
+  display: none; /* Hidden initially */
+}
+
+#background-video.active {
+  display: block; /* Shows the video when active */
+}
+
+/* Side menu styling */
+.side-menu {
+  position: fixed;
+  right: -100%; /* Ensure the menu starts hidden */
+  top: 0;
+  width: 300px; /* Maintain width */
+  height: 100%;
+  background: linear-gradient(to right, transparent, black);
+  color: white;
+  overflow-x: hidden;
+  transition: 0.3s; /* Smooth slide-in effect */
+  z-index: 10;
+  font-family: "seria sans", sans-serif;
+  font-weight: 400;
+}
+
+.side-menu, .side-menu * {
+  font-family: "cofo-sans-variable", sans-serif; /* Or your preferred font */
+  font-size: 17px; /* Adjust as needed */
+  color: white; /* Uniform text color */
+  text-transform: none; /* Adjust if you want uppercase, lowercase, etc. */
+  letter-spacing: normal; /* Adjust for character spacing */
+  line-height: 1.5; /* Adjust for readability */
+  margin: 0;
+  padding: 0;
+}
+
+.side-menu h3 {
+  font-size: 1.5em; /* Adjust font size */
+  color: white; /* Ensure it matches the theme */
+  margin-top: 23%;
+  text-align: left; /* Align the title to the left */
+}
+
+.side-menu p{
+  margin-top: 3px;
+  margin-bottom: 40px;
+  text-align: left; /* Align text to the left */
+  margin-right: 15%;
+}
+
+/* Menu content styling */
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 13x; /* Slightly increased gap between slides */
+  justify-content: flex-start; /* Align items to the top */
+  align-items: flex-start; /* Align items to the left */
+  width: 100%;
+  margin-bottom: 30px;
+}
+.menu-content p {
+  font-size: 1.2em; /* Match the font size of "Mode" */
+  color: white; /* Optional: ensure uniform text color */
+  font-weight: bold; /* Optional: make it visually similar if Mode uses bold */
+  margin-top: 0px; /* Remove additional top or bottom margins */
+  margin-bottom: 17px;
+  padding: 0; /* Ensure no extra padding is applied */
+}
+
+.menu-content label {
+  display: flex;
+  flex-direction: column; /* Stack label text and slider */
+  align-items: flex-start; /* Align text and sliders to the left */
+  gap: 4px; /* Reduce spacing between text and slider */
+  font-size: 0.9rem; /* Slightly smaller font for a tighter layout */
+  width: 100%; /* Ensure consistent alignment */
+  margin-bottom: 20px; /* Reduce space between items */
+}
+
+.menu-content span {
+  margin-top: 4px; /* Ensure spacing between text and slider */
+}
+
+/* Slider styling */
+input[type="range"] {
+  appearance: none;
+  width: 80%;
+  height: 8px; /* Keep consistent slider thickness */
+  background: #ccc;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px; /* Thumb size remains proportional */
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: #aaa;
+}
+
+
+.mood-music-control {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: flex-start; /* Align items to the left */
+  gap: 15px; /* Space between items */
+  margin-top: 10px;
+}
+
+#audio-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#audio-toggle img {
+  width: 35px; /* Adjust the size of the speaker icon */
+  height: 35px;
+}
+
+.mood-control input[type="color"],
+.music-control button img {
+  margin: 0; /* Reset any additional spacing */
+  
+}
+
+.fun-link {
+  position: absolute; /* Allow placement within the side menu */
+  bottom: 40px; /* Distance from the bottom of the menu */
+  right: 45px; /* Distance from the right edge of the menu */
+  text-align: right; /* Align text to the right */
+}
+
+#fun-link {
+  font-size: 1rem; /* Maintain consistent font size */
+  color: white;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#fun-link:hover {
+  color: #ccc; /* Lighten on hover for a subtle effect */
+}
+
+.mood-control input[type="color"]{
+  margin: 0; /* Reset any additional spacing */
+  margin-top: 20px;
+}
+
+
+#menu-toggle {
+  position: fixed;
+  right: 0.7vw;
+  top: 0.1vw;
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 3.5em; /* Original size */
+  cursor: pointer;
+  z-index: 11;
+}
+
+.simulation-control {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns for buttons */
+  grid-template-rows: auto auto auto; /* Rows: label, top buttons, middle buttons */
+  gap: 5px; /* Spacing between items */
+  width: 100%; /* Full width container */
+  text-align: left; /* Align text to the left */
+  justify-items: start; /* Align grid items to the left */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.simulation-control span {
+  grid-column: 1 / span 2; /* Span across both columns */
+  font-size: 1.2em; /* Adjust font size for emphasis */
+  color: white; /* Match button text color */
+  text-align: left; /* Align text to the left */
+}
+
+.simulation-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  width: 100%; /* Full width within the grid cell */
+  text-align: left; /* Align button text to the left */
+}
+
+.simulation-button:hover {
+  color: #ccc;
+  opacity: 0.8;
+}
+
+/* Neutral button spans full width on the bottom row */
+#neutral-button {
+  grid-column: 1 / span 2; /* Make the button span across two columns */
+  text-align: left; /* Align text to the left */
+}
+
+body, .side-menu, .side-menu * {
+  font-variation-settings: "wght" 300; /* Thin font globally */
+  font-weight: normal; /* Fallback for non-variable font browsers */
+}
+
+.menu-content p, 
+.simulation-control span, 
+#side-menu h3 {
+  font-variation-settings: "wght" 700; /* Bold for Duration, Mode, and H3 */
+  font-weight: bold; /* Fallback for non-variable font browsers */
+}
+
+
+
+@media (orientation: portrait) {
+  .orb {
+    width: 25vw; /* Adjust the size as needed */
+    height: 25vw; /* Ensure it maintains the circular shape */
+  }
+
+  .side-menu {
+    position: fixed;
+    margin-top: 15%;
+    right: -120%; /* Ensure the menu starts hidden */
+    top: 0;
+    width: 100%; /* Maintain width */
+    height: 100%;
+    background: linear-gradient(to right, transparent, black);
+    color: white;
+    overflow-x: hidden;
+    transition: 0.3s; /* Smooth slide-in effect */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    font-family: "seria sans", sans-serif;
+    font-weight: 400;
+  }
+
+  #menu-toggle {
+    position: fixed;
+    right: 0%;
+    top: 0%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 3.5em; /* Original size */
+    cursor: pointer;
+    z-index: 11;
+  }
+
+  .menu-content label {
+    display: flex;
+    flex-direction: column; /* Stack label text and slider */
+    align-items: flex-start; /* Align text and sliders to the left */
+    gap: 8px; /* Reduced gap */
+    font-size: 5vw; 
+    width: 100%;
+    margin-bottom: 200px;
+  }
+  
+  .menu-content span {
+    margin-top: 5px; /* Ensure spacing between text and slider */
+  }
+
+  .audio-control span{
+    font-size: 1em;
+  }
+  
+  .speaker-button {
+    background: none; /* No background or border */
+    border: none;
+    cursor: pointer;
+  }
+  
+  .speaker-button img {
+    width: 35px; /* speaker icon */
+    height: 35px;
+  }
+}
+
